@@ -1,12 +1,23 @@
 const { awscdk } = require('projen');
 const project = new awscdk.AwsCdkTypeScriptApp({
-  cdkVersion: '2.1.0',
+  cdkVersion: '2.67.0',
   defaultReleaseBranch: 'main',
   name: 'mlflow-on-aws',
-
-  // deps: [],                /* Runtime dependencies of this module. */
-  // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */
-  // devDeps: [],             /* Build dependencies for this module. */
-  // packageName: undefined,  /* The "name" in package.json. */
+  description: 'MLflow on AWS',
+  deps: [
+    '@aws-sdk/client-secrets-manager',
+    '@types/aws-lambda',
+    'jsonwebtoken@^9.0.0',
+  ],
+  devDeps: [
+    '@types/jsonwebtoken',
+  ],
+  tsconfig: {
+    compilerOptions: {
+      noUnusedLocals: false,
+      noUnusedParameters: false,
+    },
+  },
+  depsUpgrade: false,
 });
 project.synth();

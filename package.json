@@ -1,5 +1,6 @@
 {
   "name": "mlflow-on-aws",
+  "description": "MLflow on AWS",
   "scripts": {
     "build": "npx projen build",
     "bundle": "npx projen bundle",
@@ -13,22 +14,21 @@
     "eslint": "npx projen eslint",
     "package": "npx projen package",
     "post-compile": "npx projen post-compile",
-    "post-upgrade": "npx projen post-upgrade",
     "pre-compile": "npx projen pre-compile",
     "synth": "npx projen synth",
     "synth:silent": "npx projen synth:silent",
     "test": "npx projen test",
     "test:watch": "npx projen test:watch",
-    "upgrade": "npx projen upgrade",
     "watch": "npx projen watch",
     "projen": "npx projen"
   },
   "devDependencies": {
     "@types/jest": "^29.4.0",
+    "@types/jsonwebtoken": "^9.0.1",
     "@types/node": "^14",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
-    "aws-cdk": "^2.1.0",
+    "aws-cdk": "^2.67.0",
     "esbuild": "^0.17.11",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.7",
@@ -36,15 +36,17 @@
     "eslint-plugin-import": "^2.27.5",
     "jest": "^29.5.0",
     "jest-junit": "^13",
-    "npm-check-updates": "^16",
     "projen": "^0.67.85",
     "ts-jest": "^29.0.5",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "aws-cdk-lib": "^2.1.0",
-    "constructs": "^10.0.5"
+    "@aws-sdk/client-secrets-manager": "^3.289.0",
+    "@types/aws-lambda": "^8.10.111",
+    "aws-cdk-lib": "^2.67.0",
+    "constructs": "^10.0.5",
+    "jsonwebtoken": "^9.0.0"
   },
   "license": "Apache-2.0",
   "version": "0.0.0",

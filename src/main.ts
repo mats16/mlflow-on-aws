@@ -1,13 +1,6 @@
-import { App, Stack, StackProps } from 'aws-cdk-lib';
+import { App } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
-
-export class MyStack extends Stack {
-  constructor(scope: Construct, id: string, props: StackProps = {}) {
-    super(scope, id, props);
-
-    // define resources here...
-  }
-}
+import { MLflowStack } from './mlflow-stack';
 
 // for development, use account/region from cdk cli
 const devEnv = {
@@ -17,7 +10,7 @@ const devEnv = {
 
 const app = new App();
 
-new MyStack(app, 'mlflow-on-aws-dev', { env: devEnv });
-// new MyStack(app, 'mlflow-on-aws-prod', { env: prodEnv });
+new MLflowStack(app, 'MLflow', { env: devEnv });
+// new MyStack(app, 'ml-sandbox-prod', { env: prodEnv });
 
 app.synth();
